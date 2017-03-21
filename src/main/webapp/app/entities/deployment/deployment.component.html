@@ -31,22 +31,22 @@
                 <td>{{deployment.date | date:'medium'}}</td>
                 <td>
                     <span *ngFor="let deliveryDev of deployment.deliveryDevs; let last = last">
-                            <a class="form-control-static" [routerLink]="['../user-delivery', deliveryDev?.id ]">{{deliveryDev.id}}</a>{{last ? '' : ', '}}
+                            <a class="form-control-static" [routerLink]="['../user-delivery', deliveryDev?.id ]">{{deliveryDev.name}}</a>{{last ? '' : ', '}}
                         </span>
                 </td>
                 <td>
                     <span *ngFor="let deliveryExploitation of deployment.deliveryExploitations; let last = last">
-                            <a class="form-control-static" [routerLink]="['../user-delivery', deliveryExploitation?.id ]">{{deliveryExploitation.id}}</a>{{last ? '' : ', '}}
+                            <a class="form-control-static" [routerLink]="['../user-delivery', deliveryExploitation?.id ]">{{deliveryExploitation.name}}</a>{{last ? '' : ', '}}
                         </span>
                 </td>
                 <td>
                     <div *ngIf="deployment.plateform">
-                        <a [routerLink]="['../plateform', deployment.plateform?.id ]" >{{deployment.plateform?.id}}</a>
+                        <a [routerLink]="['../plateform', deployment.plateform?.id ]" >{{deployment.plateform?.name}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="deployment.version">
-                        <a [routerLink]="['../version', deployment.version?.id ]" >{{deployment.version?.id}}</a>
+                        <a [routerLink]="['../version', deployment.version?.id ]" >{{deployment.version?.application.name}}-{{deployment.version?.number}}</a>
                     </div>
                 </td>
                 <td class="text-right">

@@ -25,14 +25,14 @@
             <label jhiTranslate="deliveryToolsApp.deployCommandLine.application" for="field_application">Application</label>
             <select class="form-control" id="field_application" name="application" [(ngModel)]="deployCommandLine.application" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="applicationOption.id === deployCommandLine.application?.id ? deployCommandLine.application : applicationOption" *ngFor="let applicationOption of applications; trackBy: trackApplicationById">{{applicationOption.id}}</option>
+                <option [ngValue]="applicationOption.id === deployCommandLine.application?.id ? deployCommandLine.application : applicationOption" *ngFor="let applicationOption of applications; trackBy: trackApplicationById">{{applicationOption.name}}</option>
             </select>
         </div>
         <div class="form-group">
             <label jhiTranslate="deliveryToolsApp.deployCommandLine.plateform" for="field_plateform">Plateform</label>
             <select class="form-control" id="field_plateform" name="plateform" [(ngModel)]="deployCommandLine.plateform" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="plateformOption.id === deployCommandLine.plateform?.id ? deployCommandLine.plateform : plateformOption" *ngFor="let plateformOption of plateforms; trackBy: trackPlateformById">{{plateformOption.id}}</option>
+                <option [ngValue]="plateformOption.id === deployCommandLine.plateform?.id ? deployCommandLine.plateform : plateformOption" *ngFor="let plateformOption of plateforms; trackBy: trackPlateformById">{{plateformOption.name}}</option>
             </select>
         </div>
     </div>

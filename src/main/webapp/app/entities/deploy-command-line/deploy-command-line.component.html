@@ -29,12 +29,12 @@
                 <td>{{deployCommandLine.pattern}}</td>
                 <td>
                     <div *ngIf="deployCommandLine.application">
-                        <a [routerLink]="['../application', deployCommandLine.application?.id ]" >{{deployCommandLine.application?.id}}</a>
+                        <a [routerLink]="['../application', deployCommandLine.application?.id ]" >{{deployCommandLine.application?.name}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="deployCommandLine.plateform">
-                        <a [routerLink]="['../plateform', deployCommandLine.plateform?.id ]" >{{deployCommandLine.plateform?.id}}</a>
+                        <a [routerLink]="['../plateform', deployCommandLine.plateform?.id ]" >{{deployCommandLine.plateform?.name}}</a>
                     </div>
                 </td>
                 <td class="text-right">

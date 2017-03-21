@@ -11,25 +11,25 @@
         <dt><span jhiTranslate="deliveryToolsApp.deployment.deliveryDev">Delivery Dev</span></dt>
         <dd>
             <span *ngFor="let deliveryDev of deployment.deliveryDevs; let last = last">
-                <a [routerLink]="['/user-delivery', deliveryDev?.id ]">{{deliveryDev.id}}</a>{{last ? '' : ', '}}
+                <a [routerLink]="['/user-delivery', deliveryDev?.id ]">{{deliveryDev.name}}</a>{{last ? '' : ', '}}
             </span>
         </dd>
         <dt><span jhiTranslate="deliveryToolsApp.deployment.deliveryExploitation">Delivery Exploitation</span></dt>
         <dd>
             <span *ngFor="let deliveryExploitation of deployment.deliveryExploitations; let last = last">
-                <a [routerLink]="['/user-delivery', deliveryExploitation?.id ]">{{deliveryExploitation.id}}</a>{{last ? '' : ', '}}
+                <a [routerLink]="['/user-delivery', deliveryExploitation?.id ]">{{deliveryExploitation.name}}</a>{{last ? '' : ', '}}
             </span>
         </dd>
         <dt><span jhiTranslate="deliveryToolsApp.deployment.plateform">Plateform</span></dt>
         <dd>
             <div *ngIf="deployment.plateform">
-                <a [routerLink]="['/plateform', deployment.plateform?.id]">{{deployment.plateform?.id}}</a>
+                <a [routerLink]="['/plateform', deployment.plateform?.id]">{{deployment.plateform?.name}}</a>
             </div>
         </dd>
         <dt><span jhiTranslate="deliveryToolsApp.deployment.version">Version</span></dt>
         <dd>
             <div *ngIf="deployment.version">
-                <a [routerLink]="['/version', deployment.version?.id]">{{deployment.version?.id}}</a>
+                <a [routerLink]="['/version', deployment.version?.id]">{{deployment.version?.application.name}}-{{deployment.version?.number}}</a>
             </div>
         </dd>
     </dl>

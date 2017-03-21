@@ -25,7 +25,7 @@
             <label jhiTranslate="deliveryToolsApp.version.application" for="field_application">Application</label>
             <select class="form-control" id="field_application" name="application" [(ngModel)]="version.application" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="applicationOption.id === version.application?.id ? version.application : applicationOption" *ngFor="let applicationOption of applications; trackBy: trackApplicationById">{{applicationOption.id}}</option>
+                <option [ngValue]="applicationOption.id === version.application?.id ? version.application : applicationOption" *ngFor="let applicationOption of applications; trackBy: trackApplicationById">{{applicationOption.name}}</option>
             </select>
         </div>
     </div>

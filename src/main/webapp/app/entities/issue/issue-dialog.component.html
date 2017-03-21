@@ -40,7 +40,7 @@
             <label jhiTranslate="deliveryToolsApp.issue.deployment" for="field_deployment">Deployment</label>
             <select class="form-control" id="field_deployment" name="deployment" [(ngModel)]="issue.deployment" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="deploymentOption.id === issue.deployment?.id ? issue.deployment : deploymentOption" *ngFor="let deploymentOption of deployments; trackBy: trackDeploymentById">{{deploymentOption.id}}</option>
+                <option [ngValue]="deploymentOption.id === issue.deployment?.id ? issue.deployment : deploymentOption" *ngFor="let deploymentOption of deployments; trackBy: trackDeploymentById">{{deploymentOption?.version.application.name}}-{{deploymentOption?.version.number}}</option>
             </select>
         </div>
     </div>

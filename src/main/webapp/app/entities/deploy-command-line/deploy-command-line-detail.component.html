@@ -11,13 +11,13 @@
         <dt><span jhiTranslate="deliveryToolsApp.deployCommandLine.application">Application</span></dt>
         <dd>
             <div *ngIf="deployCommandLine.application">
-                <a [routerLink]="['/application', deployCommandLine.application?.id]">{{deployCommandLine.application?.id}}</a>
+                <a [routerLink]="['/application', deployCommandLine.application?.id]">{{deployCommandLine.application?.name}}</a>
             </div>
         </dd>
         <dt><span jhiTranslate="deliveryToolsApp.deployCommandLine.plateform">Plateform</span></dt>
         <dd>
             <div *ngIf="deployCommandLine.plateform">
-                <a [routerLink]="['/plateform', deployCommandLine.plateform?.id]">{{deployCommandLine.plateform?.id}}</a>
+                <a [routerLink]="['/plateform', deployCommandLine.plateform?.id]">{{deployCommandLine.plateform?.name}}</a>
             </div>
         </dd>
     </dl>

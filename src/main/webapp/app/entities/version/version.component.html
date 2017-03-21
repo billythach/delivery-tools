@@ -28,7 +28,7 @@
                 <td>{{version.number}}</td>
                 <td>
                     <div *ngIf="version.application">
-                        <a [routerLink]="['../application', version.application?.id ]" >{{version.application?.id}}</a>
+                        <a [routerLink]="['../application', version.application?.id ]" >{{version.application?.name}}</a>
                     </div>
                 </td>
                 <td class="text-right">

@@ -19,7 +19,7 @@
         <dt><span jhiTranslate="deliveryToolsApp.issue.deployment">Deployment</span></dt>
         <dd>
             <div *ngIf="issue.deployment">
-                <a [routerLink]="['/deployment', issue.deployment?.id]">{{issue.deployment?.id}}</a>
+                <a [routerLink]="['/deployment', issue.deployment?.id]">{{issue.deployment?.version.application.name}}-{{issue.deployment?.version.number}}</a>
             </div>
         </dd>
     </dl>

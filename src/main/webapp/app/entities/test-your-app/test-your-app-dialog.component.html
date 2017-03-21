@@ -25,14 +25,14 @@
             <label jhiTranslate="deliveryToolsApp.testYourApp.application" for="field_application">Application</label>
             <select class="form-control" id="field_application" name="application" [(ngModel)]="testYourApp.application" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="applicationOption.id === testYourApp.application?.id ? testYourApp.application : applicationOption" *ngFor="let applicationOption of applications; trackBy: trackApplicationById">{{applicationOption.id}}</option>
+                <option [ngValue]="applicationOption.id === testYourApp.application?.id ? testYourApp.application : applicationOption" *ngFor="let applicationOption of applications; trackBy: trackApplicationById">{{applicationOption.name}}</option>
             </select>
         </div>
         <div class="form-group">
             <label jhiTranslate="deliveryToolsApp.testYourApp.plateform" for="field_plateform">Plateform</label>
             <select class="form-control" id="field_plateform" name="plateform" [(ngModel)]="testYourApp.plateform" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="plateformOption.id === testYourApp.plateform?.id ? testYourApp.plateform : plateformOption" *ngFor="let plateformOption of plateforms; trackBy: trackPlateformById">{{plateformOption.id}}</option>
+                <option [ngValue]="plateformOption.id === testYourApp.plateform?.id ? testYourApp.plateform : plateformOption" *ngFor="let plateformOption of plateforms; trackBy: trackPlateformById">{{plateformOption.name}}</option>
             </select>
         </div>
     </div>

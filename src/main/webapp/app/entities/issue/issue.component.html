@@ -32,7 +32,7 @@
                 <td jhiTranslate="{{'deliveryToolsApp.IssueStatus.' + issue.status}}">{{issue.status}}</td>
                 <td>
                     <div *ngIf="issue.deployment">
-                        <a [routerLink]="['../deployment', issue.deployment?.id ]" >{{issue.deployment?.id}}</a>
+                        <a [routerLink]="['../deployment', issue.deployment?.id ]" >{{issue.deployment?.version.application.name}}-{{issue.deployment?.version.number}}</a>
                     </div>
                 </td>
                 <td class="text-right">

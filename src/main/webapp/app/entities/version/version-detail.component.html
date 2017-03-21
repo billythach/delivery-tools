@@ -11,7 +11,7 @@
         <dt><span jhiTranslate="deliveryToolsApp.version.application">Application</span></dt>
         <dd>
             <div *ngIf="version.application">
-                <a [routerLink]="['/application', version.application?.id]">{{version.application?.id}}</a>
+                <a [routerLink]="['/application', version.application?.name]">{{version.application?.name}}</a>
             </div>
         </dd>
     </dl>
