@@ -1,0 +1,49 @@
+
+<div *ngIf="deployment">
+    <h2><span jhiTranslate="deliveryToolsApp.deployment.detail.title">Deployment</span> {{deployment.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="deliveryToolsApp.deployment.date">Date</span></dt>
+        <dd>
+            <span>{{deployment.date | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="deliveryToolsApp.deployment.deliveryDev">Delivery Dev</span></dt>
+        <dd>
+            <span *ngFor="let deliveryDev of deployment.deliveryDevs; let last = last">
+                <a [routerLink]="['/user-delivery', deliveryDev?.id ]">{{deliveryDev.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span jhiTranslate="deliveryToolsApp.deployment.deliveryExploitation">Delivery Exploitation</span></dt>
+        <dd>
+            <span *ngFor="let deliveryExploitation of deployment.deliveryExploitations; let last = last">
+                <a [routerLink]="['/user-delivery', deliveryExploitation?.id ]">{{deliveryExploitation.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span jhiTranslate="deliveryToolsApp.deployment.plateform">Plateform</span></dt>
+        <dd>
+            <div *ngIf="deployment.plateform">
+                <a [routerLink]="['/plateform', deployment.plateform?.id]">{{deployment.plateform?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="deliveryToolsApp.deployment.version">Version</span></dt>
+        <dd>
+            <div *ngIf="deployment.version">
+                <a [routerLink]="['/version', deployment.version?.id]">{{deployment.version?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'deployment/'+ deployment.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

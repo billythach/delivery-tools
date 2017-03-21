@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Deployment.
+    -->
+    <changeSet id="20170321103102-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="deployments_id"
+                                 baseTableName="deployment_delivery_dev"
+                                 constraintName="fk_deployment_delivery_dev_deployments_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="deployment"/>
+        <addForeignKeyConstraint baseColumnNames="delivery_devs_id"
+                                 baseTableName="deployment_delivery_dev"
+                                 constraintName="fk_deployment_delivery_dev_delivery_devs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user_delivery"/>
+        
+        <addForeignKeyConstraint baseColumnNames="deployments_id"
+                                 baseTableName="deployment_delivery_exploitation"
+                                 constraintName="fk_deployment_delivery_exploitation_deployments_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="deployment"/>
+        <addForeignKeyConstraint baseColumnNames="delivery_exploitations_id"
+                                 baseTableName="deployment_delivery_exploitation"
+                                 constraintName="fk_deployment_delivery_exploitation_delivery_exploitations_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user_delivery"/>
+        
+        <addForeignKeyConstraint baseColumnNames="plateform_id"
+                                 baseTableName="deployment"
+                                 constraintName="fk_deployment_plateform_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="plateform"/>
+
+        <addForeignKeyConstraint baseColumnNames="version_id"
+                                 baseTableName="deployment"
+                                 constraintName="fk_deployment_version_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="version"/>
+
+    </changeSet>
+</databaseChangeLog>

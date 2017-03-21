@@ -1,0 +1,66 @@
+<div>
+    <h2>
+        <span jhiTranslate="deliveryToolsApp.issue.home.title">Issues</span>
+        <button class="btn btn-primary float-right create-issue" [routerLink]="['/', { outlets: { popup: ['issue-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="deliveryToolsApp.issue.home.createLabel">
+            Create new Issue
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="issues">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="deliveryToolsApp.issue.title">Title</span></th>
+            <th><span jhiTranslate="deliveryToolsApp.issue.description">Description</span></th>
+            <th><span jhiTranslate="deliveryToolsApp.issue.status">Status</span></th>
+            <th><span jhiTranslate="deliveryToolsApp.issue.deployment">Deployment</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let issue of issues ;trackBy: trackId">
+                <td><a [routerLink]="['../issue', issue.id ]">{{issue.id}}</a></td>
+                <td>{{issue.title}}</td>
+                <td>{{issue.description}}</td>
+                <td jhiTranslate="{{'deliveryToolsApp.IssueStatus.' + issue.status}}">{{issue.status}}</td>
+                <td>
+                    <div *ngIf="issue.deployment">
+                        <a [routerLink]="['../deployment', issue.deployment?.id ]" >{{issue.deployment?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../issue', issue.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'issue/'+ issue.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'issue/'+ issue.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

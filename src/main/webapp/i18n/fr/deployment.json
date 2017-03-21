@@ -1,0 +1,26 @@
+{
+    "deliveryToolsApp": {
+        "deployment" : {
+            "home": {
+                "title": "Deployments",
+                "createLabel": "Créer un nouveau Deployment",
+                "createOrEditLabel": "Créer ou éditer un Deployment"
+            },
+            "created": "Un nouveau Deployment a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Deployment avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Deployment avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Deployment {{ id }} ?"
+            },
+            "detail": {
+                "title": "Deployment"
+            },
+            "date": "Date",
+            "issue": "Issue",
+            "deliveryDev": "Delivery Dev",
+            "deliveryExploitation": "Delivery Exploitation",
+            "plateform": "Plateform",
+            "version": "Version"
+        }
+    }
+}

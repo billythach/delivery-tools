@@ -1,0 +1,37 @@
+
+<div *ngIf="deployCommandLine">
+    <h2><span jhiTranslate="deliveryToolsApp.deployCommandLine.detail.title">Deploy Command Line</span> {{deployCommandLine.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="deliveryToolsApp.deployCommandLine.pattern">Pattern</span></dt>
+        <dd>
+            <span>{{deployCommandLine.pattern}}</span>
+        </dd>
+        <dt><span jhiTranslate="deliveryToolsApp.deployCommandLine.application">Application</span></dt>
+        <dd>
+            <div *ngIf="deployCommandLine.application">
+                <a [routerLink]="['/application', deployCommandLine.application?.id]">{{deployCommandLine.application?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="deliveryToolsApp.deployCommandLine.plateform">Plateform</span></dt>
+        <dd>
+            <div *ngIf="deployCommandLine.plateform">
+                <a [routerLink]="['/plateform', deployCommandLine.plateform?.id]">{{deployCommandLine.plateform?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'deploy-command-line/'+ deployCommandLine.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

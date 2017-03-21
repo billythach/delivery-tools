@@ -1,0 +1,56 @@
+<div>
+    <h2>
+        <span jhiTranslate="deliveryToolsApp.plateform.home.title">Plateforms</span>
+        <button class="btn btn-primary float-right create-plateform" [routerLink]="['/', { outlets: { popup: ['plateform-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="deliveryToolsApp.plateform.home.createLabel">
+            Create new Plateform
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="plateforms">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="deliveryToolsApp.plateform.name">Name</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let plateform of plateforms ;trackBy: trackId">
+                <td><a [routerLink]="['../plateform', plateform.id ]">{{plateform.id}}</a></td>
+                <td>{{plateform.name}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../plateform', plateform.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'plateform/'+ plateform.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'plateform/'+ plateform.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

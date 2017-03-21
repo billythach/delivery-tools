@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity DeployCommandLine.
+    -->
+    <changeSet id="20170321103102-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="application_id"
+                                 baseTableName="deploy_command_line"
+                                 constraintName="fk_deploy_command_line_application_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="application"/>
+
+        <addForeignKeyConstraint baseColumnNames="plateform_id"
+                                 baseTableName="deploy_command_line"
+                                 constraintName="fk_deploy_command_line_plateform_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="plateform"/>
+
+    </changeSet>
+</databaseChangeLog>

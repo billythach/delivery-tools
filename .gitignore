@@ -82,7 +82,7 @@ local.properties
 *.jar
 *.war
 *.ear
-*.db
+*.trace.db
 
 ######################
 # Windows

@@ -1,0 +1,9 @@
+{
+    "deliveryToolsApp": {
+        "UserDeliveryType" : {
+            "null": "",
+            "DEVELOPER": "DEVELOPER",
+            "EXPLOITATION": "EXPLOITATION"
+        }
+    }
+}

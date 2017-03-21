@@ -1,0 +1,55 @@
+
+
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myIssueLabel" jhiTranslate="deliveryToolsApp.issue.home.createOrEditLabel">Create or edit a Issue</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!issue.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="issue.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="deliveryToolsApp.issue.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                [(ngModel)]="issue.title"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="deliveryToolsApp.issue.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                [(ngModel)]="issue.description"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="deliveryToolsApp.issue.status" for="field_status">Status</label>
+            <select class="form-control" name="status" [(ngModel)]="issue.status" id="field_status" >
+                <option value="TODO" jhiTranslate="deliveryToolsApp.IssueStatus.TODO">TODO</option>
+                <option value="DOING" jhiTranslate="deliveryToolsApp.IssueStatus.DOING">DOING</option>
+                <option value="DONE" jhiTranslate="deliveryToolsApp.IssueStatus.DONE">DONE</option>
+                <option value="REJECTED" jhiTranslate="deliveryToolsApp.IssueStatus.REJECTED">REJECTED</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="deliveryToolsApp.issue.deployment" for="field_deployment">Deployment</label>
+            <select class="form-control" id="field_deployment" name="deployment" [(ngModel)]="issue.deployment" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="deploymentOption.id === issue.deployment?.id ? issue.deployment : deploymentOption" *ngFor="let deploymentOption of deployments; trackBy: trackDeploymentById">{{deploymentOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

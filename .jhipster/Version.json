@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "application",
+            "otherEntityName": "application",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "deployment",
+            "otherEntityName": "deployment",
+            "otherEntityRelationshipName": "version"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "number",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170321103102",
+    "entityTableName": "version",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

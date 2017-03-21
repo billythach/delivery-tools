@@ -1,0 +1,24 @@
+{
+    "deliveryToolsApp": {
+        "plateform" : {
+            "home": {
+                "title": "Plateforms",
+                "createLabel": "Créer un nouveau Plateform",
+                "createOrEditLabel": "Créer ou éditer un Plateform"
+            },
+            "created": "Un nouveau Plateform a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Plateform avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Plateform avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Plateform {{ id }} ?"
+            },
+            "detail": {
+                "title": "Plateform"
+            },
+            "name": "Name",
+            "deployment": "Deployment",
+            "testYourApp": "Test Your App",
+            "deployCommandLine": "Deploy Command Line"
+        }
+    }
+}

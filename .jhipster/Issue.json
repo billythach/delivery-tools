@@ -1,0 +1,31 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "deployment",
+            "otherEntityName": "deployment",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "IssueStatus",
+            "fieldValues": "TODO,DOING,DONE,REJECTED"
+        }
+    ],
+    "changelogDate": "20170321103102",
+    "entityTableName": "issue",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

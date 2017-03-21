@@ -1,0 +1,39 @@
+
+<div *ngIf="issue">
+    <h2><span jhiTranslate="deliveryToolsApp.issue.detail.title">Issue</span> {{issue.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="deliveryToolsApp.issue.title">Title</span></dt>
+        <dd>
+            <span>{{issue.title}}</span>
+        </dd>
+        <dt><span jhiTranslate="deliveryToolsApp.issue.description">Description</span></dt>
+        <dd>
+            <span>{{issue.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="deliveryToolsApp.issue.status">Status</span></dt>
+        <dd>
+            <span jhiTranslate="{{'deliveryToolsApp.IssueStatus.' + issue.status}}">{{issue.status}}</span>
+        </dd>
+        <dt><span jhiTranslate="deliveryToolsApp.issue.deployment">Deployment</span></dt>
+        <dd>
+            <div *ngIf="issue.deployment">
+                <a [routerLink]="['/deployment', issue.deployment?.id]">{{issue.deployment?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'issue/'+ issue.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,42 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "version",
+            "otherEntityName": "version",
+            "otherEntityRelationshipName": "application"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "testYourApp",
+            "otherEntityName": "testYourApp",
+            "otherEntityRelationshipName": "application"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "deployCommandLine",
+            "otherEntityName": "deployCommandLine",
+            "otherEntityRelationshipName": "application"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "roadmapPattern",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ticketDelivery",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170321103102",
+    "entityTableName": "application",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

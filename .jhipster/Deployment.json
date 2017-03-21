@@ -1,0 +1,50 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "issue",
+            "otherEntityName": "issue",
+            "otherEntityRelationshipName": "deployment"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "deploymentAsDev",
+            "relationshipName": "deliveryDev",
+            "otherEntityName": "userDelivery",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "deploymentAsExploitation",
+            "relationshipName": "deliveryExploitation",
+            "otherEntityName": "userDelivery",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipName": "plateform",
+            "otherEntityName": "plateform",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "version",
+            "otherEntityName": "version",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20170321103102",
+    "entityTableName": "deployment",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

@@ -1,0 +1,35 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "deploymentAsDev",
+            "otherEntityName": "deployment",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "deliveryDev"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "deploymentAsExploitation",
+            "otherEntityName": "deployment",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "deliveryExploitation"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "UserDeliveryType",
+            "fieldValues": "DEVELOPER,EXPLOITATION"
+        }
+    ],
+    "changelogDate": "20170321103102",
+    "entityTableName": "user_delivery",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

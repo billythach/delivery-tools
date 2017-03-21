@@ -1,0 +1,24 @@
+{
+    "deliveryToolsApp": {
+        "userDelivery" : {
+            "home": {
+                "title": "User Deliveries",
+                "createLabel": "Create a new User Delivery",
+                "createOrEditLabel": "Create or edit a User Delivery"
+            },
+            "created": "A new User Delivery is created with identifier {{ param }}",
+            "updated": "A User Delivery is updated with identifier {{ param }}",
+            "deleted": "A User Delivery is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete User Delivery {{ id }}?"
+            },
+            "detail": {
+                "title": "User Delivery"
+            },
+            "name": "Name",
+            "type": "Type",
+            "deploymentAsDev": "Deployment As Dev",
+            "deploymentAsExploitation": "Deployment As Exploitation"
+        }
+    }
+}

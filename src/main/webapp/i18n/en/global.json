@@ -7,6 +7,14 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entities",
+                "application": "Application",
+                "deployCommandLine": "Deploy Command Line",
+                "deployment": "Deployment",
+                "issue": "Issue",
+                "plateform": "Plateform",
+                "testYourApp": "Test Your App",
+                "userDelivery": "User Delivery",
+                "version": "Version",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

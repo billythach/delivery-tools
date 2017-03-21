@@ -1,0 +1,80 @@
+<div>
+    <h2>
+        <span jhiTranslate="deliveryToolsApp.deployment.home.title">Deployments</span>
+        <button class="btn btn-primary float-right create-deployment" [routerLink]="['/', { outlets: { popup: ['deployment-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="deliveryToolsApp.deployment.home.createLabel">
+            Create new Deployment
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="deployments">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="deliveryToolsApp.deployment.date">Date</span></th>
+            <th><span jhiTranslate="deliveryToolsApp.deployment.deliveryDev">Delivery Dev</span></th>
+            <th><span jhiTranslate="deliveryToolsApp.deployment.deliveryExploitation">Delivery Exploitation</span></th>
+            <th><span jhiTranslate="deliveryToolsApp.deployment.plateform">Plateform</span></th>
+            <th><span jhiTranslate="deliveryToolsApp.deployment.version">Version</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let deployment of deployments ;trackBy: trackId">
+                <td><a [routerLink]="['../deployment', deployment.id ]">{{deployment.id}}</a></td>
+                <td>{{deployment.date | date:'medium'}}</td>
+                <td>
+                    <span *ngFor="let deliveryDev of deployment.deliveryDevs; let last = last">
+                            <a class="form-control-static" [routerLink]="['../user-delivery', deliveryDev?.id ]">{{deliveryDev.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let deliveryExploitation of deployment.deliveryExploitations; let last = last">
+                            <a class="form-control-static" [routerLink]="['../user-delivery', deliveryExploitation?.id ]">{{deliveryExploitation.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <div *ngIf="deployment.plateform">
+                        <a [routerLink]="['../plateform', deployment.plateform?.id ]" >{{deployment.plateform?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="deployment.version">
+                        <a [routerLink]="['../version', deployment.version?.id ]" >{{deployment.version?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../deployment', deployment.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'deployment/'+ deployment.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'deployment/'+ deployment.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

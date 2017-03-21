@@ -1,0 +1,23 @@
+{
+    "deliveryToolsApp": {
+        "testYourApp" : {
+            "home": {
+                "title": "TestYourApps",
+                "createLabel": "Créer un nouveau Test Your App",
+                "createOrEditLabel": "Créer ou éditer un Test Your App"
+            },
+            "created": "Un nouveau Test Your App a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Test Your App avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Test Your App avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Test Your App {{ id }} ?"
+            },
+            "detail": {
+                "title": "Test Your App"
+            },
+            "link": "Link",
+            "application": "Application",
+            "plateform": "Plateform"
+        }
+    }
+}

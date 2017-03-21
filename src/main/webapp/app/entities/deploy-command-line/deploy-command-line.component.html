@@ -1,0 +1,68 @@
+<div>
+    <h2>
+        <span jhiTranslate="deliveryToolsApp.deployCommandLine.home.title">Deploy Command Lines</span>
+        <button class="btn btn-primary float-right create-deploy-command-line" [routerLink]="['/', { outlets: { popup: ['deploy-command-line-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="deliveryToolsApp.deployCommandLine.home.createLabel">
+            Create new Deploy Command Line
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="deployCommandLines">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="deliveryToolsApp.deployCommandLine.pattern">Pattern</span></th>
+            <th><span jhiTranslate="deliveryToolsApp.deployCommandLine.application">Application</span></th>
+            <th><span jhiTranslate="deliveryToolsApp.deployCommandLine.plateform">Plateform</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let deployCommandLine of deployCommandLines ;trackBy: trackId">
+                <td><a [routerLink]="['../deploy-command-line', deployCommandLine.id ]">{{deployCommandLine.id}}</a></td>
+                <td>{{deployCommandLine.pattern}}</td>
+                <td>
+                    <div *ngIf="deployCommandLine.application">
+                        <a [routerLink]="['../application', deployCommandLine.application?.id ]" >{{deployCommandLine.application?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="deployCommandLine.plateform">
+                        <a [routerLink]="['../plateform', deployCommandLine.plateform?.id ]" >{{deployCommandLine.plateform?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../deploy-command-line', deployCommandLine.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'deploy-command-line/'+ deployCommandLine.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'deploy-command-line/'+ deployCommandLine.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

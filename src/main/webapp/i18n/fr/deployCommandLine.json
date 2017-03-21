@@ -1,0 +1,23 @@
+{
+    "deliveryToolsApp": {
+        "deployCommandLine" : {
+            "home": {
+                "title": "DeployCommandLines",
+                "createLabel": "Créer un nouveau Deploy Command Line",
+                "createOrEditLabel": "Créer ou éditer un Deploy Command Line"
+            },
+            "created": "Un nouveau Deploy Command Line a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Deploy Command Line avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Deploy Command Line avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Deploy Command Line {{ id }} ?"
+            },
+            "detail": {
+                "title": "Deploy Command Line"
+            },
+            "pattern": "Pattern",
+            "application": "Application",
+            "plateform": "Plateform"
+        }
+    }
+}

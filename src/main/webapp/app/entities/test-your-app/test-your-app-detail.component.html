@@ -1,0 +1,37 @@
+
+<div *ngIf="testYourApp">
+    <h2><span jhiTranslate="deliveryToolsApp.testYourApp.detail.title">Test Your App</span> {{testYourApp.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="deliveryToolsApp.testYourApp.link">Link</span></dt>
+        <dd>
+            <span>{{testYourApp.link}}</span>
+        </dd>
+        <dt><span jhiTranslate="deliveryToolsApp.testYourApp.application">Application</span></dt>
+        <dd>
+            <div *ngIf="testYourApp.application">
+                <a [routerLink]="['/application', testYourApp.application?.id]">{{testYourApp.application?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="deliveryToolsApp.testYourApp.plateform">Plateform</span></dt>
+        <dd>
+            <div *ngIf="testYourApp.plateform">
+                <a [routerLink]="['/plateform', testYourApp.plateform?.id]">{{testYourApp.plateform?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'test-your-app/'+ testYourApp.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

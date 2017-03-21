@@ -1,0 +1,60 @@
+
+
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myDeploymentLabel" jhiTranslate="deliveryToolsApp.deployment.home.createOrEditLabel">Create or edit a Deployment</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!deployment.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="deployment.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="deliveryToolsApp.deployment.date" for="field_date">Date</label>
+            <div class="d-flex">
+                <input id="field_date" type="datetime-local" class="form-control" name="date" [(ngModel)]="deployment.date"
+                  />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="deliveryToolsApp.deployment.deliveryDev" for="field_deliveryDev">Delivery Dev</label>
+            <select class="form-control" id="field_deliveryDev" multiple name="deliveryDev" [(ngModel)]="deployment.deliveryDevs">
+                <option [ngValue]="getSelected(deployment.deliveryDevs, userDeliveryOption)" *ngFor="let userDeliveryOption of userdeliveries; trackBy: trackUserDeliveryById">{{userDeliveryOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="deliveryToolsApp.deployment.deliveryExploitation" for="field_deliveryExploitation">Delivery Exploitation</label>
+            <select class="form-control" id="field_deliveryExploitation" multiple name="deliveryExploitation" [(ngModel)]="deployment.deliveryExploitations">
+                <option [ngValue]="getSelected(deployment.deliveryExploitations, userDeliveryOption)" *ngFor="let userDeliveryOption of userdeliveries; trackBy: trackUserDeliveryById">{{userDeliveryOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="deliveryToolsApp.deployment.plateform" for="field_plateform">Plateform</label>
+            <select class="form-control" id="field_plateform" name="plateform" [(ngModel)]="deployment.plateform" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="plateformOption.id === deployment.plateform?.id ? deployment.plateform : plateformOption" *ngFor="let plateformOption of plateforms; trackBy: trackPlateformById">{{plateformOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="deliveryToolsApp.deployment.version" for="field_version">Version</label>
+            <select class="form-control" id="field_version" name="version" [(ngModel)]="deployment.version" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="versionOption.id === deployment.version?.id ? deployment.version : versionOption" *ngFor="let versionOption of versions; trackBy: trackVersionById">{{versionOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

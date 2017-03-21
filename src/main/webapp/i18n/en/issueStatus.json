@@ -1,0 +1,11 @@
+{
+    "deliveryToolsApp": {
+        "IssueStatus" : {
+            "null": "",
+            "TODO": "TODO",
+            "DOING": "DOING",
+            "DONE": "DONE",
+            "REJECTED": "REJECTED"
+        }
+    }
+}

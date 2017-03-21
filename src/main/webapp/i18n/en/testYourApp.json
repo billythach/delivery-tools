@@ -1,0 +1,23 @@
+{
+    "deliveryToolsApp": {
+        "testYourApp" : {
+            "home": {
+                "title": "Test Your Apps",
+                "createLabel": "Create a new Test Your App",
+                "createOrEditLabel": "Create or edit a Test Your App"
+            },
+            "created": "A new Test Your App is created with identifier {{ param }}",
+            "updated": "A Test Your App is updated with identifier {{ param }}",
+            "deleted": "A Test Your App is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Test Your App {{ id }}?"
+            },
+            "detail": {
+                "title": "Test Your App"
+            },
+            "link": "Link",
+            "application": "Application",
+            "plateform": "Plateform"
+        }
+    }
+}
