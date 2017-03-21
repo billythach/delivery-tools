@@ -1,0 +1,61 @@
+entity Application {
+	name String,
+    roadmapPattern String,
+    ticketDelivery String
+}
+
+entity TestYourApp {
+	link String
+}
+
+entity Deployment {
+    date ZonedDateTime
+}
+
+entity Plateform {
+	name String
+}
+
+entity Version {
+    number String
+}
+
+enum UserDeliveryType {
+    DEVELOPER, EXPLOITATION
+}
+
+entity UserDelivery {
+   name String,
+   type UserDeliveryType
+}
+
+enum IssueStatus {
+    TODO, DOING, DONE, REJECTED
+}
+
+entity Issue {
+   title String,
+   description String,
+   status IssueStatus
+}
+
+entity DeployCommandLine {
+	pattern String
+}
+
+relationship OneToMany {
+	Application{version} to Version,
+	Plateform{deployment} to Deployment,
+	Application{testYourApp} to TestYourApp,
+	Plateform{testYourApp} to TestYourApp,
+	Deployment{issue} to Issue,
+    Version{deployment} to Deployment,
+	Application{deployCommandLine} to DeployCommandLine,
+	Plateform{deployCommandLine} to DeployCommandLine
+}
+
+relationship ManyToMany {
+	Deployment{deliveryDev} to UserDelivery{deploymentAsDev},
+	Deployment{deliveryExploitation} to UserDelivery{deploymentAsExploitation}
+}
+
